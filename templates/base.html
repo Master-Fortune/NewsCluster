@@ -1,0 +1,26 @@
+<html>
+<head>
+{% block head %}
+<title>{% block title %}{% endblock %} Grapelite </title>
+<link rel="stylesheet" href="{{ url_for('static', filename='../static/articles.css', _external=True) }}" type="text/css">
+<nav class="nav-bar">
+    <div>
+        <section >
+            <img id="logo"  alt="img" src="{{ url_for('static', filename='../static/img/Sevenza-Logo.png', _external=True) }}"  width=250 height=100/>
+        </section>
+        <ul class="nav-items">
+            {%for cluster_set in clusters%}
+            {%for cluster in cluster_set:%}
+            <li class="nav-item"><a href="/single_cluster/{{ cluster[0][-1]}}">Cluster {{ cluster[0][-1]}}</a></li>
+            {%endfor%}
+            {%endfor%}
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+</head>
+<body>
+{% block body %}
+{% endblock %}
+</body>
+</html>
